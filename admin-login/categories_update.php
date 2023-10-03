@@ -1,13 +1,18 @@
 <?php 
 include "conn.php";
 // Default response 
-$response = array( 
-    'status' => 0, 
-    'message' => 'Form submission failed, please try again.' 
-); 
+
 if(isset($_POST['upd'])){
-$catid = $_POST['catid'];
-$tstcat = $_POST['tst-cat']; 
+    $response = array( 
+        'status' => 0, 
+        'message' => 'Form submission failed, please try again.' 
+    ); 
+    // File upload folder 
+$uploadDir = '../assets/cat-icons/'; 
+// Allowed file types 
+$allowTypes = array('jpg', 'png', 'jpeg'); 
+$catid = $_POST['caid'];
+$tstcat = $_POST['cat']; 
 // Upload file 
 $uploadedFile = ''; 
 if(!empty($_FILES["cat-img"]["name"])){ 
@@ -22,12 +27,12 @@ if(!empty($_FILES["cat-img"]["name"])){
         if(move_uploaded_file($_FILES["cat-img"]["tmp_name"], $targetFilePath)){ 
             $uploadedFile = $fileName; 
 
-$sql = "UPDATE category SET cocategory = '$tstcat',icon = '$uploadedFile' WHERE id = '$catid' ";
+$sql = "UPDATE category SET category = '$tstcat',icon = '$uploadedFile' WHERE id = '$catid' ";
 $res = mysqli_query($conn,$sql);
 if($res){
 $response = array( 
     'status' => 1, 
-    'message' => 'Coupon Updated Successfully.' 
+    'message' => 'Category Updated Successfully.' 
 ); 
 }
 else{
