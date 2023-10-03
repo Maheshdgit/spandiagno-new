@@ -26,25 +26,25 @@
             <thead>
                <tr>
                   <th><strong>Id</strong></th>
-                  <th><strong>Coupon Name</strong></th>
-                  <th><strong>Discount (%)</strong></th>
+                  <th><strong>Category Name</strong></th>
                   <th><strong></strong></th>
                </tr>
             </thead>
             <tbody>
                <?php 
                   include 'conn.php';
-                  $sql = "SELECT * FROM spancoupons WHERE active =1";
+                  $sql = "SELECT * FROM category WHERE active = 1";
                   $result = mysqli_query($conn,$sql);
                   if(mysqli_num_rows($result) > 0){
                     while( $row = mysqli_fetch_assoc($result)){
                   ?>
                <tr>
                   <td><?php echo $row['id'];?></td>
-                  <td><?php echo $row['coupon'];?></td>
-                  <td><?php echo $row['percentage'];?></td>
-                  <td><a href="createcoupons.php?uniq=<?php echo $row['uniq'];?>"><button class="btn btn-primary cmn edt" value=""><i class="fa fa-pencil"></i></button></a>
-                  <button class="btn btn-danger cmn del" value="<?php echo $row['uniq'];?>"><i class="fa fa-trash"></i></button></td>
+                  <td><img src="../assets/cat-icons/<?php echo $row['icon'];?>" class="rounded-lg me-2" width="24" alt="">
+						<span class="w-space-no"><?php echo $row['category'];?></span></td>
+                  <!-- <td><?php echo $row['percentage'];?></td> -->
+                  <td><a href="add_category.php?catid=<?php echo $row['id'];?>"><button class="btn btn-primary cmn edt" value=""><i class="fa fa-pencil"></i></button></a>
+                  <button class="btn btn-danger cmn del" value="<?php echo $row['id'];?>"><i class="fa fa-trash"></i></button></td>
                </tr>
                <?php
                   }
@@ -68,7 +68,7 @@
     $.ajax({
       type: "POST",
       url: "categories_update.php",
-      data: "unid="+ uid,
+      data: "catid="+ uid,
       success: function (result) {
            alert(result);
            window.location.reload();
