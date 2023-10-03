@@ -6,15 +6,25 @@ $response = array(
     'message' => 'Form submission failed, please try again.' 
 ); 
 if(isset($_POST['upd'])){
-$catid = $_POST['cid'];
-$cpn = $_POST['category'];
-$cpndisc = $_POST['coupondisc'];
-$cpndesc = $_POST['coupondesc'];
+$catid = $_POST['catid'];
+$tstcat = $_POST['tst-cat']; 
+// Upload file 
+$uploadedFile = ''; 
+if(!empty($_FILES["cat-img"]["name"])){ 
+    // File path config 
+    $fileName = basename($_FILES["cat-img"]["name"]); 
+    $targetFilePath = $uploadDir . $fileName; 
+    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+     
+    // Allow certain file formats to upload 
+    if(in_array($fileType, $allowTypes)){ 
+        // Upload file to the server 
+        if(move_uploaded_file($_FILES["cat-img"]["tmp_name"], $targetFilePath)){ 
+            $uploadedFile = $fileName; 
 
-$sql = "UPDATE category SET cocategory = '$cpn',icon = '$cpndesc' WHERE id = '$catid' ";
+$sql = "UPDATE category SET cocategory = '$tstcat',icon = '$uploadedFile' WHERE id = '$catid' ";
 $res = mysqli_query($conn,$sql);
 if($res){
-    // Default response 
 $response = array( 
     'status' => 1, 
     'message' => 'Coupon Updated Successfully.' 
@@ -28,16 +38,32 @@ else{
         'message' => 'Form submission failed, please try again.' 
     ); 
 }
+        }
+else{
+    $response = array( 
+        'status' => 0, 
+        'message' => 'File Upload Failed ..' 
+    ); 
+}
+    }
+    else{
+        $response = array( 
+            'status' => 0, 
+            'message' => 'File format not allowed ..' 
+        ); 
+    }
+}
+
 echo json_encode($response);
 }
 else
 {
-    if(isset($_POST['unid'])){
-    $uniq = $_POST['unid'];
-    $sql = "DELETE FROM spancoupons WHERE uniq = '$uniq' ";
+    if(isset($_POST['catid'])){
+    $uniq = $_POST['catid'];
+    $sql = "DELETE FROM category WHERE id = '$uniq' ";
     $res = mysqli_query($conn,$sql);
     if($res){
-        echo "Coupon Deleted Successfully ..!";
+        echo "Category Deleted Successfully ..!";
         mysqli_close($conn);
     }
     else{
