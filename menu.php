@@ -517,7 +517,7 @@ $conn->close();
 													<img src="assets/images/meta/img_2.png" alt="thumbnail_not_found">
 												</a>
 												<div class="user-content">
-													<h4 class="user-name"><a href="#!">Rakibul Hassan</a></h4>
+													<h4 class="user-name"><a href="#!"><?php echo $_SESSION['username'];?></a></h4>
 													<span class="user-title">Seller</span>
 												</div>
 											</div>
