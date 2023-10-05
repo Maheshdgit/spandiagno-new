@@ -49,8 +49,8 @@
                       $cat = $row['category'];
                       $reptime = $row['rep_time'];
                       $prep = $row['preparation'];
-
-
+                      $uniq = $row['uniq'];
+                     
 ?>
 <div class="card">
  <div class="card-header">
@@ -166,9 +166,12 @@
                 <textarea class="form-txtarea form-control" name="tst-desc" rows="8" id="comment">
                     <?php echo $desc;?>
                 </textarea>
+
+                <input type="hidden" name="upd" value='1' />
+                <input type="hidden" name="uniq" value='<?php echo $uniq;?>' />
              </div>
           </div>
-          <button type="submit"  class="btn btn-primary submitBtn">Add Test</button>
+          <button type="submit"  class="btn btn-primary updBtn">Add Test</button>
        </form>
     </div>
     <div class="row pt-2">
