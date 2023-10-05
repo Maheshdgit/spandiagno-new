@@ -35,8 +35,8 @@ include 'header.php';
 										</p>
 										<div class="btns-group ul-li animate-item clearfix">
 											<ul class="clearfix">
-												<li><a href="#" class="btn bg-light-green">Upload Prescription</a></li>
-												<li><a href="#" class="btn bg-default-black">Lab tests</a></li>
+												<li><a href="#" class="btn bg-light-green" style="background-color: #36415a;color:#fff;>Upload Prescription</a></li>
+												<li><a href="#" class="btn bg-default-black" style="background-color: #73231d;">Lab tests</a></li>
 											</ul>
 										</div>
 									</div>
@@ -67,10 +67,10 @@ include 'header.php';
 								<a class="active" href="#popular-items" data-toggle="tab" role="tab">Popular Tests</a>
 							</li>
 							<li>
-								<a href="#toprated-items" data-toggle="tab" role="tab">Top Rated</a>
+								<a href="#toprated-items" data-toggle="tab" role="tab">Life Assessments</a>
 							</li>
 							<li>
-								<a href="#trending-items" data-toggle="tab" role="tab">Trending Tests</a>
+								<a href="#trending-items" data-toggle="tab" role="tab">Health Packages</a>
 							</li>
 						</ul>
 					</div>
@@ -105,7 +105,7 @@ include 'header.php';
                 $unqid = $row['uniq'];
                 ?>
 							    
-                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 crd">
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 crd">
 <div class="card bg-light rounded shadow crds" >
 <div class="card-body product-grid p-4 cb">
 <h5 class="crd-title"><?php echo $testtitle;?></h5>
@@ -368,11 +368,11 @@ include 'header.php';
 				<div class="container">
 
 					<div class="section-title text-center mb-70">
-						<h2 class="title-text mb-3">Health Packages</h2>
+						<h2 class="title-text mb-3">Life Assessments</h2>
 						<p class="mb-0"></p>
 					</div>
 
-				<div class="row justify-content-center mb-70">
+				<div class="row justify-content-center mb-70 class_row">
 							    <?php
                 include 'conn.php';
                //$unq=$_GET['tst_id'];
@@ -400,17 +400,21 @@ include 'header.php';
                 $unqid = $row['uniq'];
                 ?>
 							    
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 crd">
-								 <div class="card bg-light rounded shadow crds" >
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 crd1">
+								 <div class="card bg-light rounded shadow crds1" >
                     <div class="card-body product-grid p-4 cb">
 					
 					<div class="post-label ul-li-right clearfix">
 										<ul class="clearfix">
-											<li class="bg-white">-<?php echo $disc;?>%</li>
+											<!--<li class="bg-white">-<?php echo $disc;?>%</li>-->
 											<!-- <li class="bg-skyblue">NEW</li> -->
 										</ul>
 									</div>
-                        <h5 class="crd-title"><span class="rel-icon"><i class="las la-vial"></i></span> <?php echo $testtitle;?></h5>
+                        <!--<h5 class="crd-title"><span class="rel-icon"><i class="las la-vial"></i></span> <?php echo $testtitle;?></h5>-->
+                        <h5 class="crd-titles"><span class="rel-icon-health">
+                            <!--<i class="las la-vial"></i>-->
+                            <img src="assets/images/blood-count-test.png" class="icon_health">
+                            </span> Cardiac</h5>
 
 
                     </div>
