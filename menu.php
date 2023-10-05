@@ -57,7 +57,7 @@
 										</form>
 									</li>
 									<?php
-									 if(isset($_SESSION['username'])){
+									 if(isset($_SESSION['user'])){
 									 ?>
 									<li class="dropdown">
 										<button type="button" class="btn-user" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +69,7 @@
 													<img src="assets/images/meta/img_2.png" alt="thumbnail_not_found">
 												</a>
 												<div class="user-content">
-													<h4 class="user-name"><a href="#!">Rakibul Hassan</a></h4>
+													<h4 class="user-name"><a href="#!"><?php echo $_SESSION['user'];?></a></h4>
 													<span class="user-title">Seller</span>
 												</div>
 											</div>
@@ -89,18 +89,15 @@
 											<i class="lar la-user"></i>
 										</button>
 										<div aria-labelledby="user-dropdown" class="user-dropdown dropdown-menu ul-li-block clearfix">
-											<div class="profile-info clearfix">
-												<a href="#!" class="user-thumbnail">
-													<img src="assets/images/meta/img_2.png" alt="thumbnail_not_found">
-												</a>
+											<!-- <div class="profile-info clearfix">
 												<div class="user-content">
 													<h4 class="user-name"><a href="">Login / Register</a></h4>
-													<!-- <span class="user-title">Seller</span> -->
-												</div>
-											</div>
+													<span class="user-title">Seller</span> -->
+												<!-- </div>
+											</div> -->
 											<ul class="clearfix">
-												<li><a href="#!"><i class="las la-user-circle"></i>Login</a></li>
-												<li><a href="#!"><i class="las la-user-cog"></i>Register</a></li>
+												<li><a href="#" data-toggle="modal" data-target="#modalLogin"><i class="las la-user-circle"></i>Login</a></li>
+												<li><a href="#" data-toggle="modal" data-target="#modalRegister"><i class="las la-user-cog"></i>Register</a></li>
 												<!-- <li><a href="#!"><i class="las la-sign-out-alt"></i> Logout</a></li> -->
 											</ul>
 										</div>
@@ -547,8 +544,8 @@ $conn->close();
 												</div>
 											</div>
 											<ul class="clearfix">
-												<li><a href="#!"><i class="las la-user-circle"></i>Login</a></li>
-												<li><a href="#!"><i class="las la-user-cog"></i>Register</a></li>
+											<li><a href="#" data-toggle="modal" data-target="#modalLogin"><i class="las la-user-circle"></i>Login</a></li>
+												<li><a href="#" data-toggle="modal" data-target="#modalRegister"><i class="las la-user-cog"></i>Register</a></li>
 												<!-- <li><a href="#!"><i class="las la-sign-out-alt"></i> Logout</a></li> -->
 											</ul>
 										</div>

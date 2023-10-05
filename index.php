@@ -105,25 +105,39 @@ include 'header.php';
                 $unqid = $row['uniq'];
                 ?>
 							    
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 crd">
+															    
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 crd">
 								 <div class="card bg-light rounded shadow crds" >
                     <div class="card-body product-grid p-4 cb">
-					
-					<div class="post-label ul-li-right clearfix">
-										<ul class="clearfix">
-											<li class="bg-white">-<?php echo $disc;?>%</li>
-											<!-- <li class="bg-skyblue">NEW</li> -->
-										</ul>
-									</div>
-                        <h5 class="crd-title"><span class="rel-icon"><i class="las la-vial"></i></span> <?php echo $testtitle;?></h5>
-
+                        <h5 class="crd-title"><?php echo $testtitle;?></h5>
 						<div class="mt-1">
-							<p class="clr-w"><span class="icn"><i class="las la-shopping-basket"></i> <span style="margin-left:9px;"><?php echo $no;?></span></span> <span style="margin-left: 3px;">tests included</span></p>
+							<p class="clr-w"><span class="icn"><i class="las la-shopping-basket"></i> <span><?php echo $no;?></span></span> <span>tests included</span>
+							<span class="rel-icon">
+							   <!--<i class="las la-vial"></i> -->
+							    <img src="assets/images/blood-count-test.png" class="image_icon"></span></p>
 						</div>
-                        <div class="mt-1">
+           <div class="mt-1">
 						<?php if($disc != '0' || $disc != '' || $disc != null ){?>
              <div class="col-md-12 p-0">
-                <span class="crd-prc mb-30">MRP : <span class="" id="old" >₹<?php echo $mrp; ?></span><span class="fts-20" id="" >₹<?php echo $newp; ?> </span></span>
+                 <div class="row">
+                     <div class="col-md-7">
+                <span class="crd-prc mb-30">MRP : <span class="" id="old" >₹<?php echo $mrp; ?></span>
+                <span class="fts-20" id="" >₹<?php echo $newp; ?> </span>
+                </div>
+                <div class="col-md-1">
+                <div class="post-label ul-li-right clearfix">
+				<ul class="clearfix">
+					<li class="bg-white">-<?php echo $disc;?>%</li>
+					 <!--<li class="bg-skyblue">off</li> -->
+				</ul>
+				<ul >
+					<li class="off-text">off</li>
+					 <!--<li class="bg-skyblue">off</li> -->
+				</ul>
+				</div>
+				</div>
+				</span>
+				</div>
              </div>
              <?php
                 }
@@ -139,9 +153,11 @@ include 'header.php';
                         
                         <div class="mt-1">
 							<input type="hidden" name="uid"  value="<?php echo $unqid; ?>" />
-                            <button type="button" name="atc"  value="<?php echo $unqid; ?>" class="btn btn-primary crd-btn" style="    position: absolute;
-    margin-left: 192px;
-    top: 144px;">Add</button>
+                            <button type="button" name="atc"  value="<?php echo $unqid; ?>" class="btn btn-primary crd-btn">+ Add</button>
+                        </div>
+                    </div>
+                    </div>
+              </div>
                         </div>
                     </div>
                     </div>
