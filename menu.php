@@ -56,6 +56,9 @@
 											</div>
 										</form>
 									</li>
+									<?php
+									 if(isset($_SESSION['username'])){
+									 ?>
 									<li class="dropdown">
 										<button type="button" class="btn-user" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 											<i class="lar la-user"></i>
@@ -77,6 +80,34 @@
 											</ul>
 										</div>
 									</li>
+                                    <?php 
+									}
+									else{
+										?>
+                                         	<li class="dropdown">
+										<button type="button" class="btn-user" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<i class="lar la-user"></i>
+										</button>
+										<div aria-labelledby="user-dropdown" class="user-dropdown dropdown-menu ul-li-block clearfix">
+											<div class="profile-info clearfix">
+												<a href="#!" class="user-thumbnail">
+													<img src="assets/images/meta/img_2.png" alt="thumbnail_not_found">
+												</a>
+												<div class="user-content">
+													<h4 class="user-name"><a href="">Login / Register</a></h4>
+													<!-- <span class="user-title">Seller</span> -->
+												</div>
+											</div>
+											<ul class="clearfix">
+												<li><a href="#!"><i class="las la-user-circle"></i>Login</a></li>
+												<li><a href="#!"><i class="las la-user-cog"></i>Register</a></li>
+												<!-- <li><a href="#!"><i class="las la-sign-out-alt"></i> Logout</a></li> -->
+											</ul>
+										</div>
+									</li>
+										<?php
+									}
+									?>
 									<li class="dropdown">
 										<button class="btn-cart" id="cart-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 											<i class="las la-shopping-bag"></i>
@@ -473,14 +504,58 @@ $conn->close();
 					</ul>
 				</div>
 
-				<div class="user-dropdown ul-li-block clearfix">
-					<h3 class="widget-title">User Settings</h3>
-					<ul class="clearfix">
-						<li><a href="#!"><i class="las la-user-circle"></i> Profile</a></li>
-						<li><a href="#!"><i class="las la-user-cog"></i> Settings</a></li>
-						<li><a href="#!"><i class="las la-sign-out-alt"></i> Logout</a></li>
-					</ul>
-				</div>
+				<?php
+									 if(isset($_SESSION['username'])){
+									 ?>
+									<li class="dropdown">
+										<button type="button" class="btn-user" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<i class="lar la-user"></i>
+										</button>
+										<div aria-labelledby="user-dropdown" class="user-dropdown dropdown-menu ul-li-block clearfix">
+											<div class="profile-info clearfix">
+												<a href="#!" class="user-thumbnail">
+													<img src="assets/images/meta/img_2.png" alt="thumbnail_not_found">
+												</a>
+												<div class="user-content">
+													<h4 class="user-name"><a href="#!">Rakibul Hassan</a></h4>
+													<span class="user-title">Seller</span>
+												</div>
+											</div>
+											<ul class="clearfix">
+												<li><a href="#!"><i class="las la-user-circle"></i> Profile</a></li>
+												<li><a href="#!"><i class="las la-user-cog"></i> Settings</a></li>
+												<li><a href="#!"><i class="las la-sign-out-alt"></i> Logout</a></li>
+											</ul>
+										</div>
+									</li>
+                                    <?php 
+									}
+									else{
+										?>
+                                         	<li class="dropdown">
+										<button type="button" class="btn-user" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<i class="lar la-user"></i>
+										</button>
+										<div aria-labelledby="user-dropdown" class="user-dropdown dropdown-menu ul-li-block clearfix">
+											<div class="profile-info clearfix">
+												<a href="#!" class="user-thumbnail">
+													<img src="assets/images/meta/img_2.png" alt="thumbnail_not_found">
+												</a>
+												<div class="user-content">
+													<h4 class="user-name"><a href="">Login / Register</a></h4>
+													<!-- <span class="user-title">Seller</span> -->
+												</div>
+											</div>
+											<ul class="clearfix">
+												<li><a href="#!"><i class="las la-user-circle"></i>Login</a></li>
+												<li><a href="#!"><i class="las la-user-cog"></i>Register</a></li>
+												<!-- <li><a href="#!"><i class="las la-sign-out-alt"></i> Logout</a></li> -->
+											</ul>
+										</div>
+									</li>
+										<?php
+									}
+									?>
 
 			</div>
 			<div class="overlay"></div>

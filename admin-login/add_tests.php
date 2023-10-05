@@ -12,21 +12,20 @@
 	<meta property="og:image" content="social-image.png">
 	<meta name="format-detection" content="telephone=no">
     	<!-- PAGE TITLE HERE -->
-	<title>Website Management Portal</title>
+	<title>Website Management Portal - Update Tests</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
+<style>
 .multiselect-dropdown{
     width:100% !important;
 }
-    </style>
+</style>
     <?php include 'header.php'; ?>
-
     <body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
         <?php 
         include 'conn.php'; 
-        include 'menu.php'; ?>
-    
+        include 'menu.php'; 
+        ?>
             <div class="content-body">
             <div class="container-fluid">
             <div class="row">
@@ -35,11 +34,14 @@
                 if(isset($_GET['uniq'])){
                     include 'conn.php';
                     $ud = $_GET['uniq'];
-                    $sql = "SELECT * FROM tests WHERE uniq = $ud";
+                    $sql = "SELECT * FROM tests WHERE uniq = '$ud' ";
                     $result = mysqli_query($conn,$sql);
+                    $row = mysqli_fetch_assoc($result);
+                    if ($result === FALSE) {
+                        die(mysqli_error($conn));
+                      }
                     if(mysqli_num_rows($result) > 0)
                     {
-                      $row = mysqli_fetch_assoc($result);
                       $title = $row['title'];
                       $shdesc = $row['short_description'];
                       $desc = $row['description'];
@@ -50,8 +52,7 @@
                       $reptime = $row['rep_time'];
                       $prep = $row['preparation'];
                       $uniq = $row['uniq'];
-                     
-?>
+                      ?>
 <div class="card">
  <div class="card-header">
     <h4 class="card-title">Update Test</h4>
@@ -80,7 +81,8 @@
                    <?php
                       }
                       } 
-                      else {
+                      else 
+                      {
                       echo "0 results";
                       }
                       $conn->close();
@@ -137,7 +139,7 @@
           <div class="row" id="mult" style="display:none;" >
              <div class="mb-3 col-md-8">
                 <label class="form-label">Tests Included</label>
-                <select  name="tstsinc[]" id="field2"  multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" onchange="console.log(this.selectedOptions)">
+                <select  name="tstsinc[]" id="field2"  multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="5" onchange="console.log(this.selectedOptions)">
                    <?php 
                       include 'conn.php';
                       $sql = "SELECT title FROM tests WHERE active = 1 ";
